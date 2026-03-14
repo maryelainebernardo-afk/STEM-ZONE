@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEM Zone</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#000;
+color:white;
+scroll-behavior:smooth;
+}
+
+/* TEAM TITLE */
+
+#team h2{
+text-align:center;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.team-guide{
+text-align:center;
+color:#ccc;
+margin-bottom:30px;
+font-size:18px;
+}
+
+/* RESOURCES TITLE */
+
+#resources h2{
+text-align:center;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.resources-guide{
+text-align:center;
+color:#ccc;
+margin-bottom:40px;
+font-size:18px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 60px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(8px);
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#00c8ff;
+}
+
+.menu a{
+margin-left:30px;
+cursor:pointer;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.menu a:hover{
+color:#00c8ff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+padding-left:10%;
+position:relative;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+top:0;
+left:0;
+z-index:-1;
+}
+
+.hero h1{
+font-size:70px;
+color:#00c8ff;
+}
+
+.hero p{
+font-size:22px;
+margin-top:10px;
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 10%;
+}
+
+/* TEAM */
+
+.people{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.person{
+background:linear-gradient(135deg,#5b7cff,#00c8ff);
+border-radius:20px;
+padding:10px;
+cursor:pointer;
+}
+
+.person img{
+width:100%;
+border-radius:15px;
+}
+
+.bio{
+margin-top:30px;
+padding:20px;
+background:#111;
+display:none;
+border-left:4px solid #00c8ff;
+}
+
+/* STEM RESOURCES */
+
+.stem-container{
+display:grid;
+grid-template-columns:200px 1fr;
+gap:30px;
+}
+
+.stem-grid{
+display:grid;
+grid-template-columns:repeat(2,200px);
+gap:20px;
+}
+
+.stem-box{
+width:200px;
+height:200px;
+border-radius:20px;
+overflow:hidden;
+cursor:pointer;
+position:relative;
+}
+
+.stem-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(70%);
+}
+
+.letter{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:80px;
+font-weight:bold;
+color:white;
+text-shadow:0 5px 15px black;
+}
+
+/* CONTENT PANEL */
+
+.stem-content{
+background:linear-gradient(135deg,#7fa4d1,#5a86c8);
+border-radius:20px;
+padding:30px;
+min-height:200px;
+}
+
+.stem-content video{
+width:100%;
+margin-top:20px;
+border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">STEM ZONE</div>
+
+<div class="menu">
+<a onclick="scrollToSection('team')">TEAMS</a>
+<a onclick="scrollToSection('resources')">RESOURCES</a>
+</div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+<video autoplay muted loop>
+<source src="stemvideo.mp4">
+</video>
+
+<div>
+<h1>STEM ZONE</h1>
+<p>Learning, Innovation and Discovery</p>
+
+<button class="know-btn" onclick="toggleInfo()">Know More</button>
+
+<div id="site-info" class="site-info">
+<p>
+STEM Zone is an interactive educational website that introduces users to the four
+major fields of STEM: Science, Technology, Engineering, and Mathematics.
+
+Visitors can explore videos and learning materials by clicking the STEM letters,
+learn about the team members who created the project, and understand how each
+STEM discipline contributes to innovation and real-world problem solving.
+</p>
+</div>
+
+</div>
+
+</section>  
+
+<!-- TEAM SECTION -->
+
+<section id="team">
+
+<h2>OUR TEAM</h2>
+
+<p class="team-guide">
+Click on a team member to learn more about them.  
+Their biography will appear below once selected.
+</p>
+
+<div class="people">
+
+<div class="person" onclick="showBio('bio1')">
+<img src="person1.png">
+</div>
+
+<div class="person" onclick="showBio('bio2')">
+<img src="person2.png">
+</div>
+
+<div class="person" onclick="showBio('bio3')">
+<img src="person3.png">
+</div>
+
+<div class="person" onclick="showBio('bio4')">
+<img src="person4.png">
+</div>
+
+<div class="person" onclick="showBio('bio5')">
+<img src="person5.png">
+</div>
+
+</div>
+
+<div id="bio1" class="bio">
+<h3>Mary Elaine Bernardo</h3>
+<p>Senior High School STEM student with a strong interest in technology and a solid foundation in logical thinking. <br>
+    Shows the ability to work effectively both independently and in collaborative environments. Applies basic technical <br>
+    knowledge and problem-solving skills to real-world challenges. Actively seeks opportunities for improvement and welcomes <br>
+    helpful feedback, using it effectively to enhance performance and learning outcomes.</p>
+</div>
+
+<div id="bio2" class="bio">
+<h3>John Mark Terrana</h3>
+<p>A detail-oriented and fervent Senior High School STEM student towards the ratification and transformative finalization showcase.<br>
+     Beyond detail, excels in communication and acumen within consensus or what was agreed upon. Rooted in a history of effective <br>
+     leadership and unwavering commitment---lead to acknowledged Analytical, Assiduous, Collaborative, and ultimately a Visionary <br>
+     upon different aspects of a project.</p>
+</div>
+
+<div id="bio3" class="bio">
+<h3>Jazrylle Chey Manallo</h3>
+<p>A Senior High School STEM student who is competent in employing designs and ideas, <br>
+    as well as capable of learning new things. Enthusiastic about sharing potential skills and abilities<br>
+     that will contribute to the effective development. Demonstrates a willingness to learn and innovate<br>
+      with a strong foundation in science, mathematics, and technology, eager to apply creative problem-solving <br>
+      skills in collaborative environments. Committed to producing high-quality, unique projects, while actively <br>
+      sharing ideas and fostering teamwork.</p>
+</div>
+
+<div id="bio4" class="bio">
+<h3>Ashly Mendoza</h3>
+<p>A hardworking Senior High School student with a willingness to continuously learn and improve. <br>
+    Demonstrates the ability to create innovative ideas, adapt to new challenges, and collaborate effectively <br>
+    in team-based environments. Possesses a growing excellence in academic and practical skills, with enthusiasm <br>
+    for developing talents that contribute to positive outcomes.</p>
+</div>
+
+<div id="bio5" class="bio">
+<h3>Rain Cyrus Caindoy</h3>
+<p>A graduating Grade 12 STEM student at Sacred Heart Academy of Sta. Maria, Bulacan, with a strong foundation in teamwork, <br>
+    active listening, and effective communication. Demonstrates the ability to learn new concepts quickly and continuously <br>
+    improve skills through dedication and self-discipline. Target-driven and highly motivated, with a strong work ethic and a <br>
+    positive attitude toward challenges. Adaptable and well-prepared to face academic and real-world demands, with a commitment <br>
+    to personal growth, collaboration, and excellence in future endeavors.</p>
+</div>
+
+</section>
+<section id="resources">
+
+<script>
+
+function showBio(id){
+
+// hide all bios
+let bios = document.querySelectorAll(".bio");
+
+bios.forEach(bio=>{
+bio.style.display = "none";
+});
+
+// show selected bio
+document.getElementById(id).style.display = "block";
+
+}
+
+</script>
+<section id="resources">
+<video autoplay muted loop playsinline id="stem-bg-video">
+    <source src="stemzone-bg.mp4" type="video/mp4">
+</video>
+
+<h2>STEM RESOURCES</h2>
+
+<p class="resources-guide">
+Click on the letters <b>S</b>, <b>T</b>, <b>E</b>, or <b>M</b> to explore each STEM field.
+A panel will open beside the letter containing a short explanation and an educational video.
+Click another letter to switch topics.
+</p>
+
+<div class="stem-container">
+
+<!-- S -->
+<div class="stem-row">
+    
+<div class="stem-box" onclick="toggleStem('science-panel')">
+<img src="science.png">
+<div class="letter">S</div>
+</div>
+
+<div class="stem-panel" id="science-panel">
+<video controls>
+<source src="science.mp4" type="video/mp4">
+</video>
+<h3>Science</h3>
+<p>is the study of the natural world through observation, experimentation, and analysis. It helps people understand how living organisms, matter, energy, and natural forces interact with each other. From studying tiny cells to exploring distant planets, science allows humans to learn more about the universe and how it works.
+
+</div>
+
+</div>
+
+
+<!-- T -->
+<div class="stem-row">
+
+<div class="stem-box" onclick="toggleStem('tech-panel')">
+<img src="technology.png">
+<div class="letter">T</div>
+</div>
+
+<div class="stem-panel" id="tech-panel">
+<video controls>
+<source src="technology.mp4" type="video/mp4">
+</video>
+<h3>Technology</h3>
+<p>refers to the tools, machines, and systems that people create to solve problems and make everyday tasks easier. It applies scientific knowledge in practical ways to improve communication, transportation, healthcare, and many other aspects of life.
+
+
+</div>
+
+</div>
+
+
+<!-- E -->
+<div class="stem-row">
+
+<div class="stem-box" onclick="toggleStem('engineering-panel')">
+<img src="engineering.png">
+<div class="letter">E</div>
+</div>
+
+<div class="stem-panel" id="engineering-panel">
+<video controls>
+<source src="engineering.mp4" type="video/mp4">
+</video>
+<h3>Engineering</h3>
+<p> is the application of science and mathematics to design, build, and improve structures, machines, and systems. Engineers use creativity and technical knowledge to develop solutions that address real-world challenges.
+
+
+</div>
+
+</div>
+
+
+<!-- M -->
+<div class="stem-row">
+
+<div class="stem-box" onclick="toggleStem('math-panel')">
+<img src="mathematics.png">
+<div class="letter">M</div>
+</div>
+
+<div class="stem-panel" id="math-panel">
+<video controls>
+<source src="math.mp4" type="video/mp4">
+</video>
+<h3>Mathematics</h3>
+<p> is the study of numbers, patterns, quantities, and relationships. It provides the logical framework used in science, engineering, and technology to analyze problems and develop solutions.
+
+
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function toggleStem(panelId){
+
+const container = document.querySelector(".stem-container");
+const panels = document.querySelectorAll(".stem-panel");
+
+let isOpening = true;
+
+panels.forEach(panel=>{
+if(panel.id !== panelId){
+panel.classList.remove("active");
+}
+});
+
+let selected = document.getElementById(panelId);
+
+if(selected.classList.contains("active")){
+selected.classList.remove("active");
+isOpening = false;
+}else{
+selected.classList.add("active");
+}
+
+if(isOpening){
+container.classList.add("open");
+}else{
+let anyOpen = document.querySelector(".stem-panel.active");
+if(!anyOpen){
+container.classList.remove("open");
+}
+}
+
+}
+
+
+</script>
+
+    
+
+
+<style>
+/* container */
+
+.stem-container{
+display:flex;
+flex-direction:column;
+gap:6px; /* close spacing by default */
+transition:0.4s;
+}
+
+/* when a panel is open */
+
+.stem-container.open{
+gap:30px; /* rows spread apart */
+}
+
+/* row */
+
+.stem-row{
+display:flex;
+align-items:flex-start;
+gap:10px;
+transition:0.4s;
+}
+
+/* STEM box */
+
+.stem-box{
+width:120px;
+height:120px;
+border-radius:15px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+
+.stem-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(70%);
+}
+
+/* letter */
+
+.letter{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:60px;
+font-weight:bold;
+color:white;
+text-shadow:0 4px 12px black;
+}
+
+/* panel hidden */
+
+.stem-panel{
+max-width:0;
+opacity:0;
+overflow:hidden;
+transition:0.4s;
+background:linear-gradient(135deg,#7fa4d1,#5a86c8);
+border-radius:15px;
+padding:0;
+}
+
+/* panel visible */
+
+.stem-panel.active{
+max-width:520px;
+opacity:1;
+padding:20px;
+}
+
+.stem-panel video{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+#resources {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#stem-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none; /* prevents interaction */
+    opacity: 0.5; /* optional: slightly dim the video */
+}
+
+/* Make STEM content appear above the video */
+.stem-container, .resources-guide, h2 {
+    position: relative;
+    z-index: 1;
+}
+</style>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+<style>
+.know-btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#00c8ff;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.know-btn:hover{
+background:#0096c7;
+}
+
+.site-info{
+margin-top:20px;
+max-width:500px;
+background:rgba(0,0,0,0.7);
+padding:20px;
+border-radius:10px;
+display:none;
+line-height:1.6;
+}
+</style>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", function startMusic(){
+
+music.play();
+document.removeEventListener("click", startMusic);
+
+});
+
+</script>
+<script>
+
+function toggleInfo(){
+
+const info = document.getElementById("site-info");
+
+if(info.style.display === "block"){
+info.style.display = "none";
+}else{
+info.style.display = "block";
+}
+
+}
+
+</script>
+<script>
+
+const music = document.getElementById("bgMusic");
+
+function startMusic(){
+music.play();
+document.removeEventListener("mousemove", startMusic);
+document.removeEventListener("scroll", startMusic);
+document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("mousemove", startMusic);
+document.addEventListener("scroll", startMusic);
+document.addEventListener("click", startMusic);
+
+</script>
+
+<script>
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({
+behavior: "smooth"
+});
+}
+
+</script>
+
+</html> 
+<footer class="footer">
+STEM ZONE © 2026 Copyright <br>
+All rights reserved to MUC
+</footer>
+
+<script>
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({
+behavior: "smooth"
+});
+}
+</script>
+
+</body>
+</html>
+
+<style>
+    /* FOOTER */
+
+.footer{
+text-align:center;
+padding:25px;
+background:#000;
+color:#888;
+font-size:14px;
+border-top:1px solid #222;
+margin-top:80px;
+}
+</style>
